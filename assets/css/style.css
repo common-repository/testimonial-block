@@ -1,0 +1,650 @@
+@charset "UTF-8";
+/*
+ *  Owl Carousel - Core
+ */
+.owl-carousel {
+  display: none;
+  width: 100%;
+  -webkit-tap-highlight-color: transparent;
+  /* position relative and z-index fix webkit rendering fonts issue */
+  position: relative;
+  z-index: 1;
+}
+
+.owl-carousel .owl-stage {
+  position: relative;
+  touch-action: manipulation;
+  -moz-backface-visibility: hidden;
+  /* fix firefox animation glitch */
+}
+
+.owl-carousel .owl-stage:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+.owl-carousel .owl-stage-outer {
+  position: relative;
+  overflow: hidden;
+  /* fix for flashing background */
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+}
+
+.owl-carousel .owl-item {
+  position: relative;
+  min-height: 1px;
+  float: left;
+  -webkit-backface-visibility: hidden;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+}
+
+.owl-carousel .owl-item img {
+  display: block;
+  width: 100%;
+}
+
+.owl-carousel .owl-nav.disabled,
+.owl-carousel .owl-dots.disabled {
+  display: none;
+}
+
+.owl-carousel .owl-nav .owl-prev,
+.owl-carousel .owl-nav .owl-next,
+.owl-carousel .owl-dot {
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel .owl-nav button.owl-prev,
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel button.owl-dot {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+}
+
+.owl-carousel.owl-loaded {
+  display: block;
+}
+
+.owl-carousel.owl-loading {
+  opacity: 0;
+  display: block;
+}
+
+.owl-carousel.owl-hidden {
+  opacity: 0;
+}
+
+.owl-carousel.owl-refresh .owl-item {
+  visibility: hidden;
+}
+
+.owl-carousel.owl-drag .owl-item {
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.owl-carousel.owl-grab {
+  cursor: move;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.owl-carousel.owl-rtl {
+  direction: rtl;
+}
+
+.owl-carousel.owl-rtl .owl-item {
+  float: right;
+}
+
+/* No Js */
+.no-js .owl-carousel {
+  display: block;
+}
+
+/*
+ *  Owl Carousel - Animate Plugin
+ */
+.owl-carousel .animated {
+  -webkit-animation-duration: 1000ms;
+          animation-duration: 1000ms;
+  -webkit-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+
+.owl-carousel .owl-animated-in {
+  z-index: 0;
+}
+
+.owl-carousel .owl-animated-out {
+  z-index: 1;
+}
+
+.owl-carousel .fadeOut {
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+}
+
+@-webkit-keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/*
+ * 	Owl Carousel - Auto Height Plugin
+ */
+.owl-height {
+  transition: height 500ms ease-in-out;
+}
+
+/*
+ * 	Owl Carousel - Lazy Load Plugin
+ */
+.owl-carousel .owl-item {
+  /**
+			This is introduced due to a bug in IE11 where lazy loading combined with autoheight plugin causes a wrong
+			calculation of the height of the owl-item that breaks page layouts
+		 */
+}
+
+.owl-carousel .owl-item .owl-lazy {
+  opacity: 0;
+  transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-item .owl-lazy[src^=""], .owl-carousel .owl-item .owl-lazy:not([src]) {
+  max-height: 0;
+}
+
+.owl-carousel .owl-item img.owl-lazy {
+  transform-style: preserve-3d;
+}
+
+/*
+ * 	Owl Carousel - Video Plugin
+ */
+.owl-carousel .owl-video-wrapper {
+  position: relative;
+  height: 100%;
+  background: #000;
+}
+
+.owl-carousel .owl-video-play-icon {
+  position: absolute;
+  height: 80px;
+  width: 80px;
+  left: 50%;
+  top: 50%;
+  margin-left: -40px;
+  margin-top: -40px;
+  background: url("../img/owl.video.play.png") no-repeat;
+  cursor: pointer;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  transition: transform 100ms ease;
+}
+
+.owl-carousel .owl-video-play-icon:hover {
+  transform: scale(1.3, 1.3);
+}
+
+.owl-carousel .owl-video-playing .owl-video-tn,
+.owl-carousel .owl-video-playing .owl-video-play-icon {
+  display: none;
+}
+
+.owl-carousel .owl-video-tn {
+  opacity: 0;
+  height: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  transition: opacity 400ms ease;
+}
+
+.owl-carousel .owl-video-frame {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box {
+  margin-bottom: 15px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box .jms-testimonial-image {
+  max-width: 100%;
+  position: relative;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box .jms-testimonial-image img {
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box:not(.seperator-line-break) .jms-testimonial-name + .jms-testimonial-position::before {
+  content: "";
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box.seperator-solidus .jms-testimonial-name + .jms-testimonial-position::before {
+  content: '/';
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box.seperator-vertical-line .jms-testimonial-name + .jms-testimonial-position::before {
+  content: '|';
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-box.seperator-en-dash .jms-testimonial-name + .jms-testimonial-position::before {
+  content: '–';
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 {
+  text-align: center;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1.seperator-line-break .jms-testimonial-meta {
+  flex-direction: column;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1.seperator-line-break.on-the-right .jms-testimonial-meta {
+  flex-direction: column-reverse;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-image {
+  margin: 0 auto 1em;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta {
+  display: flex;
+  align-items: center;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta.d-inline-flex {
+  display: inline-flex;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta .jms-testimonial-name, .wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta .jms-testimonial-position {
+  padding: 0 10px;
+  position: relative;
+  display: inline-flex;
+  flex: 1;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta .jms-testimonial-name + .jms-testimonial-position {
+  display: inline-flex;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1 .jms-testimonial-meta .jms-testimonial-name + .jms-testimonial-position::before {
+  position: absolute;
+  left: -14px;
+  top: 0;
+  min-width: 28px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1:not(.on-the-right) .jms-testimonial-name {
+  justify-content: flex-end;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1.on-the-right:not(.seperator-line-break) .jms-testimonial-meta {
+  flex-direction: row-reverse;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1.on-the-right:not(.seperator-line-break) .jms-testimonial-meta .jms-testimonial-name + .jms-testimonial-position {
+  justify-content: flex-end;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-1.on-the-right:not(.seperator-line-break) .jms-testimonial-meta .jms-testimonial-name + .jms-testimonial-position::before {
+  left: auto;
+  right: -14px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2:not(.seperator-line-break) .jms-testimonial-name, .wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2:not(.seperator-line-break) .jms-testimonial-position {
+  display: inline-flex;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-content {
+  position: relative;
+  padding: 1rem 1.5rem 1rem 2rem;
+  border-radius: 3px;
+  border: 1px solid #cccccc;
+  min-height: 80px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-content::before, .wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-content::after {
+  content: '';
+  position: absolute;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 12px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .wp-block-jmsthemes-testimonial__image {
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .wp-block-jmsthemes-testimonial__image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-author {
+  display: flex;
+  margin: 30px 0 0 0;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-author .jms-testimonial-image {
+  width: auto;
+  max-width: 100px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2 .jms-testimonial-author .jms-testimonial-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2:not(.on-the-right) .jms-testimonial-content::before {
+  border-left-color: #ccc;
+  border-top-color: #ccc;
+  bottom: -25px;
+  left: 40px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2:not(.on-the-right) .jms-testimonial-content::after {
+  border-left-color: #ffffff;
+  border-top-color: #ffffff;
+  bottom: -22px;
+  left: 41px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2:not(.on-the-right) .jms-testimonial-author .jms-testimonial-image {
+  margin-right: 25px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right {
+  text-align: right;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right .jms-testimonial-content::before {
+  border-right-color: #ccc;
+  border-top-color: #ccc;
+  bottom: -25px;
+  right: 40px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right .jms-testimonial-content::after {
+  border-right-color: #ffffff;
+  border-top-color: #ffffff;
+  bottom: -22px;
+  right: 41px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right .jms-testimonial-author {
+  justify-content: flex-end;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right .jms-testimonial-author .jms-testimonial-meta {
+  order: -1;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-2.on-the-right .jms-testimonial-author .jms-testimonial-image {
+  margin-left: 25px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3 {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3 .jms-testimonial-image {
+  flex: 0 0 auto;
+  margin-bottom: 0;
+  max-width: 200px;
+  position: relative;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3 .jms-testimonial-image img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3 .jms-testimonial-content {
+  flex: 1 1 0px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3 .jms-testimonial-star-rating {
+  margin-bottom: 1em;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3:not(.seperator-line-break) .jms-testimonial-meta .jms-testimonial-name, .wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3:not(.seperator-line-break) .jms-testimonial-meta .jms-testimonial-position {
+  display: inline-flex;
+  position: relative;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3:not(.on-the-right) .jms-testimonial-content {
+  padding-left: 1em;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3.on-the-right {
+  text-align: right;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3.on-the-right > div {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .jms-testimonial-style-3.on-the-right .jms-testimonial-content {
+  order: -1;
+  padding-right: 1em;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav {
+  margin-top: 10px;
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.disabled, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.disabled {
+  display: none;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav > [class*='owl-'] {
+  background: 0 0;
+  border: none;
+  font: inherit;
+  cursor: pointer;
+  margin: 5px;
+  display: inline-block;
+  height: 32px;
+  width: 32px;
+  text-align: center;
+  color: #000000;
+  background-color: transparent;
+  border-radius: 0;
+  outline: 0;
+  line-height: 32px;
+  position: relative;
+  opacity: 1;
+  left: auto;
+  right: auto;
+  transform: none;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav > [class*='owl-'] *, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav > [class*='owl-'] * {
+  font-size: 1.5em;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav > [class*='owl-'].hover {
+  background-color: transparent;
+  color: #52b3d9;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-1 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-2 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-5 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-6 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-1 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-2 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-5 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-6 > [class*='owl-'] {
+  color: #ffffff;
+  background-color: #000000;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-1 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-1 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-2 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-2 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-5 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-5 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-6 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-6 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-1 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-1 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-2 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-2 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-5 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-5 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-6 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-6 > [class*='owl-'].hover {
+  background-color: #52b3d9;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-2 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-8 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-2 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-8 > [class*='owl-'] {
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-5 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-5 > [class*='owl-'] {
+  border-radius: 4px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-'] {
+  position: relative;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:before, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  left: -2px;
+  top: -2px;
+  border: 1px solid #000000;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:hover:before, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-'].hover:before, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:hover:before, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-4 > [class*='owl-'].hover:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:hover:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-'].hover:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-']:hover:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-4 > [class*='owl-'].hover:before {
+  border: 1px solid #52b3d9;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-'] {
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:before, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-3 > [class*='owl-']:before {
+  border-radius: 50%;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-6 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-9 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-6 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-9 > [class*='owl-'] {
+  position: relative;
+  transform: rotate(45deg);
+  margin-right: 15px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-6 > [class*='owl-'] *, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-9 > [class*='owl-'] *, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-6 > [class*='owl-'] *, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-9 > [class*='owl-'] * {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: rotate(-45deg);
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-7 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-8 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-9 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-7 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-8 > [class*='owl-'], .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-9 > [class*='owl-'] {
+  border: 1px solid #000000;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-7 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-7 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-8 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-8 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-9 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.nav-type-9 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-7 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-7 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-8 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-8 > [class*='owl-'].hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-9 > [class*='owl-']:hover, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.nav-type-9 > [class*='owl-'].hover {
+  border: 1px solid #52b3d9;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav .disabled, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav .disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-nav.jms-nav.disabled + .owl-dots, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-nav.jms-nav.disabled + .owl-dots {
+  margin-top: 10px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots {
+  text-align: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot {
+  display: inline-block;
+  zoom: 1;
+  outline: none;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot .owl-dot-image, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot .owl-dot-image {
+  outline: none;
+  margin: 5px 7px;
+  border: 1px solid #cccccc;
+  max-width: 80px;
+  vertical-align: middle;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot.active .owl-dot-image, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot:hover .owl-dot-image, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot.active .owl-dot-image, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot:hover .owl-dot-image {
+  border-color: #52b3d9;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot span, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot span {
+  width: 10px;
+  height: 10px;
+  margin: 5px 7px;
+  background: #D6D6D6;
+  display: block;
+  -webkit-backface-visibility: visible;
+  transition: opacity 200ms ease;
+  border-radius: 30px;
+}
+
+.wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot.active span, .wp-block-jmsthemes-blocks-testimonial .owl-carousel .owl-dots .owl-dot:hover span, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot.active span, .wp-block-jmsthemes-blocks-testimonial .jms-nav-control .owl-dots .owl-dot:hover span {
+  background: #869791;
+}
+

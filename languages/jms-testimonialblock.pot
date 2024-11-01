@@ -1,0 +1,261 @@
+# Copyright (C) 2019 Joommasters
+# This file is distributed under the same license as the JMS Testimonialblock plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: JMS Testimonialblock 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/jms-testimonialblock\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2019-09-20T07:40:03+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.3.0\n"
+"X-Domain: jms-testimonialblock\n"
+
+#. Plugin Name of the plugin
+msgid "JMS Testimonialblock"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+msgid "http://joommasters.com"
+msgstr ""
+
+#. Description of the plugin
+msgid "JMS Testimonial Block for the Gutenberg editor."
+msgstr ""
+
+#. Author of the plugin
+#: assets/js/main.js:1
+msgid "Joommasters"
+msgstr ""
+
+#: includes/class-hook.php:48
+msgid "Jmsthemes Blocks"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Layout"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Testimonial per Row"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Number of Rows"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Margin-right(px) on item"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Slide by Page"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Loop Slider"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Enable"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Disable."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Rewind Slider"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Pagination"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Pagination."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Hide Pagination."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Navigation"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Navigation."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Hide Navigation."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Auto Play"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Disable"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Autoplay Interval Timeout."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Pause on Mouse Hover"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Testimonial Setting"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Template"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Image"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Image?"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Rating"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Rating?"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Comment"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Comment?"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Font Family"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "- Select Font -"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Font Variant"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Text Color"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Author Name"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Author Name?"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Position"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show Position?"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Seperator Style"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Responsive"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Items in Desktop"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Items in Tablet"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Items in Mobile"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Navigation Style"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Arrow Color"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Arrow Hover Color"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Arrow BackgroundColor"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Arrow Hover BackgroundColor"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Edit"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show on left"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Show on right"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Please enter infomation"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Testimonial"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Display a testimonial with a image, comment, name, position and rating."
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Remove"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Media Library"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Write testimonial comment here"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Name"
+msgstr ""
+
+#: assets/js/main.js:1
+msgid "Testimonial Item"
+msgstr ""
